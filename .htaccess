@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/include/(.*)$
+  RewriteCond %{REQUEST_URI} !^/img/(.*)$
+  RewriteCond $1 !^(index\.php|images|assets|captcha|data|include|uploads|robots\.txt)
+  RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
